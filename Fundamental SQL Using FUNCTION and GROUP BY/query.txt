@@ -28,5 +28,61 @@ SELECT StudentID, FirstName, LastName, MOD(Semester1,2) as Semester1, Semester2,
 FROM students;
 
 7. Fungsi Skalar Matematika - CONCAT( )
+
 SELECT StudentID, CONCAT(FirstName, LastName) as Name, Semester1, Semester2, MarkGrowth
 FROM students;
+
+8. Fungsi Text - SUBSTRING_INDEX( )
+
+SELECT StudentID, SUBSTRING_INDEX(Email,'@',1) as Name
+FROM students;
+
+9. Fungsi Text - SUBSTR( )
+
+SELECT StudentID, SUBSTR(FirstName, 2, 3) as Initial
+FROM students;
+
+10. Fungsi Text - LENGTH( )
+
+SELECT StudentID, FirstName, LENGTH(FirstName) as Total_Char
+FROM students;
+
+11. Fungsi Text - REPLACE( )
+
+SELECT StudentID, Email, REPLACE(Email, 'yahoo', 'gmail') as New_Email
+FROM students;
+
+12. Tugas:
+Gunakan fungsi UPPER() untuk mengubah kolom FirstName menjadi seluruhnya kapital dan gunakan LOWER() untuk mengubah kolom LastName menjadi seluruhnya non-kapital. Gunakan kedua fungsi tersebut dalam satu SELECT-Statement.
+
+SELECT StudentID, UPPER(FirstName) FirstName, LOWER(LastName) LastName
+FROM students;
+
+13. Fungsi Aggregate - SUM()
+
+SELECT SUM(Semester1) as Total_1, SUM(Semester2) as Total_2
+FROM students;
+
+14. Fungsi Aggregate - COUNT()
+
+SELECT COUNT(FirstName) as Total_Student
+FROM students;
+
+15. Fungsi AVG
+SELECT AVG(Semester1) as AVG_1, AVG(Semester2) as AVG_2
+FROM students;
+
+16. Tugas:
+Setelah memahami fungsi-fungsi sebelumnya, kali ini Senja memintaku untuk menggunakan fungsi MIN() dan MAX() untuk menghitung nilai dari kolom Semester1 dan Semester2. Aku menggunakan fungsi tersebut dalam satu SELECT-Statement.
+
+SELECT MIN(Semester1) as Min1, MAX(Semester1) as Max1, MIN(Semester2) as Min2, MAX(Semester2) as Max2
+FROM students;
+
+17. Group by Single Column
+
+SELECT province,
+COUNT(DISTINCT order_id) as total_order,
+SUM(item_price) as total_price
+FROM sales_retail_2019
+GROUP BY province;
+
