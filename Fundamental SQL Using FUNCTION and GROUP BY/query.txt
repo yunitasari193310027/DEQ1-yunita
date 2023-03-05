@@ -26,3 +26,7 @@ Gunakan fungsi MOD() untuk menghitung nilai sisa jika nilai Semester1 dibagi 2 d
 
 SELECT StudentID, FirstName, LastName, MOD(Semester1,2) as Semester1, Semester2, EXP(MarkGrowth)
 FROM students;
+
+7. Fungsi Skalar Matematika - CONCAT( )
+SELECT StudentID, CONCAT(FirstName, LastName) as Name, Semester1, Semester2, MarkGrowth
+FROM students;
