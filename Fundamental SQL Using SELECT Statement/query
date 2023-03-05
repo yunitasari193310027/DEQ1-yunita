@@ -1,0 +1,5 @@
+# perkalian antara kolom qty dan harga untuk memperoleh total revenue setiap kode pelanggan yang dinyatakan ke dalam kolom total dan menggunakan “ORDER BY total DESC” pada akhir query untuk mengurutkan
+
+SELECT kode_pelanggan, nama_produk, qty, harga, qty*harga AS total 
+FROM tr_penjualan WHERE qty*harga >= 100000 
+ORDER BY total DESC;
