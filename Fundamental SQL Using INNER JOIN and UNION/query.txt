@@ -1,1 +1,34 @@
+1. Tugas Praktek: Menggunakan INNER JOIN (2/3)
+“Oke, Aksara. Silakan dipraktikkan pada code editor untuk menggabungkan tabel tr_penjualan dan ms_produk dan menampilkan seluruh kolom dari kedua tabel.”
 
+SELECT * FROM tr_penjualan
+INNER JOIN ms_produk 
+ON tr_penjualan.kode_produk =ms_produk.kode_produk;
+
+2. Tugas Praktek: Menggunakan INNER JOIN (3/3)
+“Oke, semua dariku sudah. Sekarang silakan dipraktikkan pada code editor untuk menggabungkan tabel tr_penjualan dan ms_produk dengan kolom yang ditampilkan dari tabel tr_penjualan adalah kode_transaksi, kode_pelanggan, kode_produk, qty. Untuk tabel ms_produk tampilkan kolom nama_produk dan harga." 
+Aku mengangguk mantap. Senja sudah membekaliku sampai di sini. Ini saatnya aku mandiri.
+Kemudian aku membentuk kolom total yang merupakan hasil perkalian setiap baris pada kolom harga di tabel ms_produk dengan kolom qty di tabel tr_penjualan.
+"Tabel hasil penggabungan haruslah membentuk kolom-kolom dengan urutannya adalah kode_transaksi, kode_pelanggan, kode_produk, nama_produk, harga, qty, dan total," lanjut Senja lagi mengingatkan.
+
+
+SELECT tr_penjualan.kode_transaksi, tr_penjualan.kode_pelanggan, tr_penjualan.kode_produk, ms_produk.nama_produk, ms_produk.harga, tr_penjualan.qty,  tr_penjualan.qty*ms_produk.harga AS total
+FROM tr_penjualan
+INNER JOIN ms_produk
+ON tr_penjualan.kode_produk = ms_produk.kode_produk;
+
+3. Project INNER JOIN
+
+SELECT DISTINCT ms_pelanggan.kode_pelanggan, ms_pelanggan.nama_customer, ms_pelanggan.alamat
+FROM ms_pelanggan
+INNER JOIN tr_penjualan
+ON ms_pelanggan.kode_pelanggan = tr_penjualan.kode_pelanggan
+WHERE tr_penjualan.nama_produk = 'Kotak Pensil DQLab' OR tr_penjualan.nama_produk = 'Flashdisk DQLab 32 GB' OR tr_penjualan.nama_produk = 'Sticky Notes DQLab 500 sheets';
+
+4. Project UNION
+
+SELECT nama_produk, kode_produk, harga FROM ms_produk_1
+WHERE harga < 100000
+UNION
+SELECT nama_produk, kode_produk, harga FROM ms_produk_2
+WHERE harga < 50000;
