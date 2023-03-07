@@ -4,4 +4,4 @@ df = pd.read_csv("https://storage.googleapis.com/dqlab-dataset/sample_tsv.tsv", 
 # Index dari df
 print("Index:", df.index)
 # Column dari df
-print("Index:", df.columns)
+print("Columns:", df.columns)
