@@ -21,5 +21,5 @@ print('Merge - Right:\n', merge_df_right)
 merge_df_inner = pd.merge(left=df1, right=df2, how='inner', left_on='key', right_on='key')
 print('Merge - Inner:\n', merge_df_inner)
 # Merge yang ekivalen dengan SQL outer join
-merge_df_outer = pd.merge(left=df1, right=df2, how='inner', left_on='key', right_on='key')
+merge_df_outer = pd.merge(left=df1, right=df2, how='outer', left_on='key', right_on='key')
 print('Merge - Outer:\n', merge_df_outer)
